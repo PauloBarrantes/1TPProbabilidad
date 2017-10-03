@@ -101,7 +101,7 @@ public class Quickstart {
     }
 
     public static void main(String[] args) throws IOException {
-    /*    // Build a new authorized API client service.
+        // Build a new authorized API client service.
         Gmail service = getGmailService();
 
         // Print the labels in the user's account.
@@ -129,7 +129,7 @@ public class Quickstart {
         for (Message message : messages) {
             System.out.println(message.toPrettyString());
         }
-*/
+
     }
 
 }
