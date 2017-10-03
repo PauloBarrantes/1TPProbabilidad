@@ -100,6 +100,7 @@ public class Quickstart {
                 .build();
     }
 
+
     public static void main(String[] args) throws IOException {
         // Build a new authorized API client service.
         Gmail service = getGmailService();
@@ -128,6 +129,9 @@ public class Quickstart {
 
         for (Message message : messages) {
             System.out.println(message.toPrettyString());
+            Message messagex;
+            messagex = service.users().messages().get(user, message.getId()).execute();
+            System.out.println("Message snippet: " + messagex.getSnippet());
         }
 
     }
