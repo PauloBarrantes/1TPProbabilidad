@@ -50,7 +50,7 @@ public class Quickstart {
      * at ~/.credentials/gmail-java-quickstart
      */
     private static final List<String> SCOPES =
-        Arrays.asList(GmailScopes.GMAIL_LABELS, GmailScopes.GMAIL_READONLY);
+        Arrays.asList(GmailScopes.GMAIL_READONLY);
 
     static {
         try {
@@ -100,76 +100,36 @@ public class Quickstart {
                 .build();
     }
 
-    public static List<Message> listMessagesMatchingQuery(Gmail service, String userId,
-                                                          String query) throws IOException {
-        query = "in:Spam : includeSpamTrash:true";
-        ListMessagesResponse response = service.users().messages().list(userId).setQ(query).execute();
-
-        List<Message> messages = new ArrayList<Message>();
-        while (response.getMessages() != null) {
-            messages.addAll(response.getMessages());
-            if (response.getNextPageToken() != null) {
-                String pageToken = response.getNextPageToken();
-                response = service.users().messages().list(userId).setQ(query)
-                        .setPageToken(pageToken).execute();
-            } else {
-                break;
-            }
-        }
-
-        for (Message message : messages) {
-            System.out.println(message.toPrettyString());
-        }
-
-        return messages;
-    }
-
-    public static List<Message> listMessagesWithLabels(Gmail service, String userId,
-                                                       List<String> labelIds) throws IOException {
-        ListMessagesResponse response = service.users().messages().list(userId)
-                .setLabelIds(labelIds).execute();
-
-        List<Message> messages = new ArrayList<Message>();
-        while (response.getMessages() != null) {
-            messages.addAll(response.getMessages());
-            if (response.getNextPageToken() != null) {
-                String pageToken = response.getNextPageToken();
-                response = service.users().messages().list(userId).setLabelIds(labelIds)
-                        .setPageToken(pageToken).execute();
-            } else {
-                break;
-            }
-        }
-
-        for (Message message : messages) {
-            System.out.println(message.toPrettyString());
-        }
-
-        return messages;
-    }
-
     public static void main(String[] args) throws IOException {
-        // Build a new authorized API client service.
+    /*    // Build a new authorized API client service.
         Gmail service = getGmailService();
 
         // Print the labels in the user's account.
         String user = "me";
-        ListLabelsResponse listResponse = service.users().labels().list(user).execute();
-        List<Label> labels = listResponse.getLabels();
-        List<String> label = li;
-
-        label.add("Spam");
-        listMessagesWithLabels(service, user, label);
+        String query = "in:Spam";
 
 
-        if (labels.size() == 0) {
-            System.out.println("No labels found.");
-        } else {
-            System.out.println("Labels:");
-            for (Label label : labels) {
-                System.out.printf("- %s\n", label.getName());
+        ListMessagesResponse response = service.users().messages().list(user).setQ(query)
+                .execute();
+
+        List<Message> messages = new ArrayList<Message>();
+
+
+        while (response.getMessages() != null) {
+            messages.addAll(response.getMessages());
+            if (response.getNextPageToken() != null) {
+                String pageToken = response.getNextPageToken();
+                response = service.users().messages().list(user).setQ(query)
+                        .setPageToken(pageToken).execute();
+            } else {
+                break;
             }
         }
-    }*/
+
+        for (Message message : messages) {
+            System.out.println(message.toPrettyString());
+        }
+*/
+    }
 
 }
