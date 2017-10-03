@@ -1,5 +1,3 @@
-
-
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -10,20 +8,19 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
-
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.*;
 import com.google.api.services.gmail.Gmail;
-
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
+import com.google.api.client.repackaged.org.apache.commons.codec.binary.StringUtils;
 
 public class Quickstart {
     /** Application name. */
@@ -130,8 +127,12 @@ public class Quickstart {
         for (Message message : messages) {
             System.out.println(message.toPrettyString());
             Message messagex;
-            messagex = service.users().messages().get(user, message.getId()).execute();
-            System.out.println("Message snippet: " + messagex.getSnippet());
+            messagex = service.users().messages().get(user, message.getId()).setFormat("full").execute();
+            //Get Body
+            byte[] bodyBytes = Base64.decodeBase64(messagex.getPayload().getParts().get(0).getBody().getData().trim().toString());
+            String body = new String(bodyBytes, "UTF-8");
+
+            System.out.println(body);
         }
 
     }
