@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d0ab8d7-bff5-4fe2-9633-165f07069dff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0.2/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.0.2/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0.2/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.0.2/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/Quickstart.class" afterPath="$PROJECT_DIR$/out/production/classes/Quickstart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Application.java" afterPath="$PROJECT_DIR$/src/main/java/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/GmailRetriever.java" afterPath="$PROJECT_DIR$/src/main/java/GmailRetriever.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PersistenceManager.java" afterPath="$PROJECT_DIR$/src/main/java/PersistenceManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Quickstart.java" afterPath="$PROJECT_DIR$/src/main/java/Quickstart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settings.java" afterPath="$PROJECT_DIR$/src/main/java/Settings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/UI.java" afterPath="$PROJECT_DIR$/src/main/java/UI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,8 +39,8 @@
       <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,21 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="45" lean-forward="false" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+            <state relative-caret-position="705">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="345">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -519,14 +512,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/Quickstart.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Settings.java" />
         <option value="$PROJECT_DIR$/src/main/java/Word.java" />
         <option value="$PROJECT_DIR$/src/main/java/PersistenceManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Email.java" />
         <option value="$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/GmailRetriever.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Settings.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UI.java" />
       </list>
     </option>
   </component>
@@ -751,12 +744,12 @@
       <workItem from="1506980488582" duration="14451000" />
       <workItem from="1509034261227" duration="2222000" />
       <workItem from="1510676970475" duration="428000" />
-      <workItem from="1510693941177" duration="8878000" />
+      <workItem from="1510693941177" duration="10145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25979000" />
+    <option name="totallyTimeSpent" value="27246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1174" extended-state="0" />
@@ -1030,14 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PersistenceManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1067,18 +1052,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="45" lean-forward="false" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+        <state relative-caret-position="705">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
