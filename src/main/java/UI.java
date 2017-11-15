@@ -77,7 +77,9 @@ public class UI {
     }
 
     public void showWords(List<Word> words) {
-
+       words.forEach(
+         system.out.println("Hola");
+       );
     }
 
     public void showSnippet(String snippet){

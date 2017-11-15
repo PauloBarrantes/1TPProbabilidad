@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Email {
@@ -14,15 +15,26 @@ public class Email {
        this.to = to;
        this.from = from;
     }
-
-    public void logIn(){
-
+    public String getid(){
+        return this.id;
     }
-    public void logOut(){
 
+    public String getBody(){
+        return this.body;
     }
+
+    public String getHeader(){
+        return this.header;
+    }
+    public String getTo(){
+        return this.to;
+    }
+    public String getFrom(){
+        return this.from;
+    }
+
     public List<Email> getEmail(String label){
-        List<Email> emails;
+        List<Email> emails = new ArrayList<>();
         return   emails;
     }
 

@@ -7,4 +7,25 @@ public class Word {
         this.frecuency = frecuency;
         this.probability = probability;
     }
+    public void setFrecuency(double frecuency){
+        this.frecuency = frecuency;
+    }
+    public void increaseFrec(){
+        this.frecuency = frecuency+1;
+    }
+
+    public void setProbability(double prob){
+        this.probability = probability;
+    }
+    public String getWord(){
+        return this.word;
+    }
+
+    public double getFrecuency(){
+        return this.frecuency;
+    }
+
+    public double getProbability(){
+        return this.probability;
+    }
 }

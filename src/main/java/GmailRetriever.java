@@ -71,7 +71,12 @@ public class GmailRetriever {
         return new Gmail.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential).setApplicationName(APPLICATION_NAME).build();
     }
 
+    public void logIn(){
 
+    }
+    public void logOut(){
+
+    }
 
     public GmailRetriever() {
 
