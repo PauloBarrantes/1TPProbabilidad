@@ -14,10 +14,18 @@ import com.google.api.services.gmail.GmailScopes;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
 public class GmailRetriever {
+
+    public GmailRetriever() {
+
+
+    }
 
     // Directorio para guardar las credenciales de la aplicación
     private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java-quickstart");
@@ -74,13 +82,20 @@ public class GmailRetriever {
     public void logIn(){
 
     }
+
     public void logOut(){
+        String dir = "Users/Berta/.credentials/gmail-java-quickstart";
+
+        Path filePath = Paths.get(dir);
+        try {
+            System.out.println("Borrando Credenciales");
+            Files.delete(FilePath);
+        } catch(IOException ioException) {
+            ioException.printStackTrace();
+        }
 
     }
 
-    public GmailRetriever() {
 
-
-    }
 
 }

@@ -12,8 +12,8 @@ public class UI {
     public void showMenu(){
 
         System.out.println("Welcome to the Bayesian Spam Filter ");
-        System.out.println(" \( 1 \) Authenticate ");
-        System.out.println(" \( 2 \) Exit ");
+        System.out.println(" ( 1 ) Authenticate ");
+        System.out.println(" ( 2 ) Exit ");
 
         String answerS = scanner.nextLine();
         int answerI = Integer.parseInt(answerS);
@@ -28,13 +28,13 @@ public class UI {
         }
 
         System.out.println("Choose an Option: ");
-        System.out.println(" \( 1 \) Settings");
-        System.out.println(" \( 2 \) Train");
-        System.out.println(" \( 3 \) Settings");
-        System.out.println(" \( 4 \) Show Data");
-        System.out.println(" \( 5 \) Get New Mail ");
-        System.out.println(" \( 6 \) Log Out ");
-        System.out.println(" \( 7 \) Exit ");
+        System.out.println(" ( 1 ) Settings");
+        System.out.println(" ( 2 ) Train");
+        System.out.println(" ( 3 ) Settings");
+        System.out.println(" ( 4 ) Show Data");
+        System.out.println(" ( 5 ) Get New Mail ");
+        System.out.println(" ( 6 ) Log Out ");
+        System.out.println(" ( 7 ) Exit ");
 
         answerS = scanner.nextLine();
         answerI = Integer.parseInt(answerS);
