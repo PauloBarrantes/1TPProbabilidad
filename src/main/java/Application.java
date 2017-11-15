@@ -1,5 +1,6 @@
 public class Application {
 
+
     //JAVADOC //Constructor
     public Application(){
     Scanner scanner = new Scanner(System.in);
@@ -9,7 +10,7 @@ public class Application {
 
 
         int answerI = 0;
-
+        // Creo que el UI es el que debería comunicarse con el usuario hasta para pedir estas entradas, solo poner llamados a UI y que retornen la respuesta.
         System.out.println("Welcome to the Bayesian Spam Filter ");
         System.out.println(" \( 1 \) Authenticate ");
         System.out.println(" \( 2 \) Exit ");
