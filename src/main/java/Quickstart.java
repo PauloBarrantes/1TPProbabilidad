@@ -24,19 +24,17 @@ import com.google.api.client.repackaged.org.apache.commons.codec.binary.StringUt
 
 public class Quickstart {
     /** Application name. */
-    private static final String APPLICATION_NAME =
-        "Gmail API Java Quickstart";
+    private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
 
     /** Directory to store user credentials for this application. */
-    private static final java.io.File DATA_STORE_DIR = new java.io.File(
-        System.getProperty("user.home"), ".credentials/gmail-java-quickstart");
+    private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java-quickstart");
 
     /** Global instance of the {@link FileDataStoreFactory}. */
+
     private static FileDataStoreFactory DATA_STORE_FACTORY;
 
     /** Global instance of the JSON factory. */
-    private static final JsonFactory JSON_FACTORY =
-        JacksonFactory.getDefaultInstance();
+    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
     /** Global instance of the HTTP transport. */
     private static HttpTransport HTTP_TRANSPORT;
@@ -46,8 +44,7 @@ public class Quickstart {
      * If modifying these scopes, delete your previously saved credentials
      * at ~/.credentials/gmail-java-quickstart
      */
-    private static final List<String> SCOPES =
-        Arrays.asList(GmailScopes.GMAIL_READONLY);
+    private static final List<String> SCOPES = Arrays.asList(GmailScopes.GMAIL_READONLY);
 
     static {
         try {
@@ -125,7 +122,7 @@ public class Quickstart {
         }
 
         for (Message message : messages) {
-            System.out.println(message.toPrettyString());
+            //System.out.println(message.toPrettyString());
             Message messagex;
             messagex = service.users().messages().get(user, message.getId()).setFormat("full").execute();
             //Get Body

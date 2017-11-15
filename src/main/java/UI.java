@@ -6,8 +6,10 @@ public class UI {
 
     }
     public void showMenu(){
-
+        System.out.println("Choose an option from the list below: ");
+        System.out.println(" \( 1 \) ");
     }
+
     public void inputUser(){
 
     }
@@ -15,6 +17,7 @@ public class UI {
     public void showWords(List<Word> words) {
 
     }
+
     public void showSnippet(String snippet){
 
     }

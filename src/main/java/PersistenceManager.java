@@ -9,7 +9,7 @@ public class PersistenceManager {
 
         return
     }
-    public void write( List<Word> words){
+    public void write( List<Word> words) {
 
     }
 
