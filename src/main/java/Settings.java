@@ -13,4 +13,29 @@ public class Settings {
 
 
     }
+
+    public void setSpamThreshold(double st) {
+        this.SpamThreshold = st;
+    }
+
+    public void setSpamThreshold(double sp) {
+        this.SpamProbability = sp;
+    }
+
+    public void setSpamThreshold(int ss) {
+        this.sizeSet = ss;
+    }
+
+
+    public double getSpamThreshold(){
+        return this.SpamThreshold;
+    }
+
+    public double getSpamProbability(){
+        return this.SpamProbability;
+    }
+
+    public int getSizeSet(){
+        return this.sizeSet;
+    }
 }
