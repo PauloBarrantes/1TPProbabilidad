@@ -5,15 +5,22 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.json.JsonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.GmailScopes;
-
+import com.google.api.services.gmail.model.*;
+import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.model.ListMessagesResponse;
+import com.google.api.services.gmail.model.Message;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
+import com.google.api.client.repackaged.org.apache.commons.codec.binary.StringUtils;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -102,7 +109,7 @@ public class GmailRetriever {
 
     public List<Email> getEmail() {
 
-      List<Email> list = new ArrayList<Email>;
+      List<Email> list = new ArrayList<Email>();
 
       Gmail service = getGmailService();
 
@@ -131,13 +138,12 @@ public class GmailRetriever {
           messagex = service.users().messages().get(user, message.getId()).setFormat("full").execute();
           //Get Body
           byte[] bodyBytes = Base64.decodeBase64(messagex.getPayload().getParts().get(0).getBody().getData().trim().toString());
-          String body = new String(bodyBytes, "UTF-8");
 
-          System.out.println(body);
+          String body = new String(bodyBytes, "UTF-8");
           String header = "";
 
-
-          list.add()
+          Email mail = new Email(body);
+          list.add(mail);
       }
     }
 
