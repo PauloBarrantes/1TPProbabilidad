@@ -83,6 +83,10 @@ public class GmailRetriever {
 
     }
 
+    public boolean existCredentials(){
+        return false;
+    }
+
     public void logOut(){
         String dir = "Users/Berta/.credentials/gmail-java-quickstart";
 

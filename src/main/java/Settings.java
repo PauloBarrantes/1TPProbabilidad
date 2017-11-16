@@ -18,11 +18,11 @@ public class Settings {
         this.SpamThreshold = st;
     }
 
-    public void setSpamThreshold(double sp) {
+    public void setSpamProbability(double sp) {
         this.SpamProbability = sp;
     }
 
-    public void setSpamThreshold(int ss) {
+    public void setSizeSet(int ss) {
         this.sizeSet = ss;
     }
 

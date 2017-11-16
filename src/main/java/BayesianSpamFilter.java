@@ -28,13 +28,13 @@ public class BayesianSpamFilter {
 
         return prob;
     }
-    private void recofig(double spamThreshold, double spamProbability, int sizeSet){
+    public void recofig(double spamThreshold, double spamProbability, int sizeSet){
         this.spamThreshold = spamThreshold;
         this.spamProbability = spamProbability;
         this.sizeSet = sizeSet;
     }
 
-    private boolean Sort(Email mail){
+    public boolean Sort(Email mail){
         boolean spam = false;
         double prob = 0.0;
         String W = "";
@@ -54,7 +54,7 @@ public class BayesianSpamFilter {
         return spam;
     }
 
-    private void train (List<Email>spam, List<Email>Normal){
+    public void train (List<Email>spam, List<Email>Normal){
 
 
     }
