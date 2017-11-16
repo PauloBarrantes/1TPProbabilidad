@@ -100,6 +100,47 @@ public class GmailRetriever {
 
     }
 
+    public List<Email> getEmail() {
+
+      List<Email> list = new ArrayList<Email>;
+
+      Gmail service = getGmailService();
+
+      // Print the labels in the user's account.
+      String user = "me";
+      String query = "in:Spam";
+
+
+      ListMessagesResponse response = service.users().messages().list(user).setQ(query).execute();
+      List<Message> messages = new ArrayList<Message>();
+
+
+      while (response.getMessages() != null) {
+          messages.addAll(response.getMessages());
+          if (response.getNextPageToken() != null) {
+              String pageToken = response.getNextPageToken();
+              response = service.users().messages().list(user).setQ(query).setPageToken(pageToken).execute();
+          } else {
+              break;
+          }
+      }
+
+      for (Message message : messages) {
+          //System.out.println(message.toPrettyString());
+          Message messagex;
+          messagex = service.users().messages().get(user, message.getId()).setFormat("full").execute();
+          //Get Body
+          byte[] bodyBytes = Base64.decodeBase64(messagex.getPayload().getParts().get(0).getBody().getData().trim().toString());
+          String body = new String(bodyBytes, "UTF-8");
+
+          System.out.println(body);
+          String header = "";
+
+
+          list.add()
+      }
+    }
+
 
 
 }
