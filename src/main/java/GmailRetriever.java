@@ -33,7 +33,8 @@ public class GmailRetriever {
 
 
     }
-
+    //Application name.
+    private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
     // Directorio para guardar las credenciales de la aplicación
     private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"), ".credentials/gmail-java-quickstart");
 
@@ -63,7 +64,7 @@ public class GmailRetriever {
     public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-                Quickstart.class.getResourceAsStream("/client_secret.json");
+                GmailRetriever.class.getResourceAsStream("/client_secret.json");
         GoogleClientSecrets clientSecrets =
                 GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -100,14 +101,14 @@ public class GmailRetriever {
         Path filePath = Paths.get(dir);
         try {
             System.out.println("Borrando Credenciales");
-            Files.delete(FilePath);
+            Files.delete(filePath);
         } catch(IOException ioException) {
             ioException.printStackTrace();
         }
 
     }
 
-    public List<Email> getEmail() {
+    public List<Email> getEmail() throws IOException {
 
       List<Email> list = new ArrayList<Email>();
 
@@ -142,9 +143,11 @@ public class GmailRetriever {
           String body = new String(bodyBytes, "UTF-8");
           String header = "";
 
-          Email mail = new Email(body);
+          Email mail = new Email("01", body,"hola","paulo","SpamStalkers");
           list.add(mail);
       }
+
+      return list;
     }
 
 

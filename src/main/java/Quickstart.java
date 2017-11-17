@@ -23,7 +23,7 @@
 //import com.google.api.client.repackaged.org.apache.commons.codec.binary.StringUtils;
 //
 //public class Quickstart {
-//    /** Application name. */
+//     Application name. */
 //    private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
 //
 //    /** Directory to store user credentials for this application. */
