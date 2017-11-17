@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
 public class Application {
 
     private Settings configuration = new Settings();
@@ -7,11 +11,15 @@ public class Application {
     private UI ui = new UI();
 
     //JAVADOC //Constructor
-    public Application(){
-        run();
+    public Application() {
+        try {
+            run();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
-    public void run(){
+    public void run() throws IOException {
         // Si las credenciales no existen, hacemos el llamado al login
         if(gmail.existCredentials() == false){
             ui.showMenu(1);
@@ -74,25 +82,28 @@ public class Application {
 
     }
 
-    private void showWords(){
-
+    private void showWords() throws FileNotFoundException {
+        ui.showWords(data.readToShow());
     }
 
     private void adjustments(){
 
     }
 
-    private void filter(){
-
-
+    private void filter() throws IOException {
+        List<Email> mails = gmail.getEmail();
+        for (Email i : mails){
+            System.out.println(i.getBody());
+        }
+        //bayesianSpam.filter(gmail.getEmail());
     }
 
     private void exit () {
-
+        System.exit(1);
     }
 
     private void logOut(){
-
+        gmail.logOut();
     }
 
     public static void main (String args[]) {

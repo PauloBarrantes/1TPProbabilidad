@@ -34,7 +34,8 @@ public class BayesianSpamFilter {
         this.sizeSet = sizeSet;
     }
 
-    public boolean Sort(Email mail){
+    public boolean sort(Email mail){
+
         boolean spam = false;
         double prob = 0.0;
         String W = "";
@@ -52,6 +53,15 @@ public class BayesianSpamFilter {
             spam = true;
         }
         return spam;
+    }
+
+    public void filter(List<Email> mails){
+        for(Email i : mails){
+            boolean spam = sort(i);
+            if(spam == true){
+                //Hacer Algo con el Spam
+            }
+        }
     }
 
     public void train (List<Email>spam, List<Email>Normal){
