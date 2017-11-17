@@ -124,7 +124,7 @@ public class Application {
                     ui.showSnippet("Successful");
                     bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("No se realizo el cambio");
+                    ui.showSnippet("Unable to save changes");
                 }
 
                 break;
@@ -137,10 +137,10 @@ public class Application {
 
                 if(answerP>= 0 && answerP <= 1){
                     settings.setSpamProbability(answerP);
-                    ui.showSnippet("successful");
+                    ui.showSnippet("Successful");
                     bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("No se realizo el cambio");
+                    ui.showSnippet("Unable to save changes");
                 }
                 break;
             case 3:
@@ -151,15 +151,15 @@ public class Application {
                 }catch (NumberFormatException e){}
                 if(answerS > 0){
                     settings.setSizeSet(answerS);
-                    ui.showSnippet("successful");
+                    ui.showSnippet("Successful");
                     bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("No se realizo el cambio");
+                    ui.showSnippet("Unable to save changes");
                 }
 
                 break;
             case 4:
-                ui.showSnippet("No ha realizado ningún cambio");
+                ui.showSnippet("No changes were made.");
                 break;
             default:
         }

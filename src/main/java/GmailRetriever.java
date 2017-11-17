@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.NoSuchFileException;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -113,15 +112,13 @@ public class GmailRetriever {
      *
      */
     public void logOut() throws IOException {
-        String dir = DATA_STORE_DIR.getAbsolutePath();
-        Path path = Paths.get(dir);
 
-        try {
-            System.out.println("Loging Out...");
-            Files.delete(path);
-        } catch (NoSuchFileException x) {
-            System.err.format("Already Loged Out");
-        }
+        String path = DATA_STORE_DIR.getAbsolutePath();
+        File file = new File(path);
+        System.out.println(path);
+        System.out.println("Loging Out...");
+        file.delete();
+
     }
 
     /**

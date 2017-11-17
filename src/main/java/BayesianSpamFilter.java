@@ -114,8 +114,8 @@ public class BayesianSpamFilter {
             probWordNoSpam(v,finalCardinalityN);
         });
 
-        System.out.println("Cardinalidad Spam:" + cardinalityS);
-        System.out.println("Cardinalidad Normal:" + cardinalityN);
+        System.out.println("Amount of Spam Emails:" + cardinalityS);
+        System.out.println("Amount of Regular Emails:" + cardinalityN);
 
     }
 
