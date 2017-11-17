@@ -9,7 +9,7 @@ public class Settings {
 
         this.SpamThreshold = 0.9 ;
         this.SpamProbability = 0.3;
-        this.sizeSet = 3;
+        this.sizeSet = 50;
     }
 
     public void setSpamThreshold(double st) {
@@ -23,7 +23,6 @@ public class Settings {
     public void setSizeSet(int ss) {
         this.sizeSet = ss;
     }
-
     public double getSpamThreshold(){
         return this.SpamThreshold;
     }

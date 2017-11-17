@@ -36,7 +36,7 @@ public class Application {
             if(ans == 1){
                 logIn();
             }else{
-                if(ans == 0){
+                if(ans == 2){
                     exit();
                 }else{
                     System.out.println("Invalid Option");
@@ -72,7 +72,7 @@ public class Application {
                     logOut();
                     break;
 
-                case 0:
+                case 6:
                     exit();
                     break;
                 default:
@@ -87,9 +87,11 @@ public class Application {
     private void train(){
         // Cargamos las palabras que tengamos en el hashMap
         try {
+            if(data.archiveExist()){
+                //Cargamos las palabras al hashMap
+            }
             bayesianSpam.train(gmail.getEmail(settings.getSizeSet(),spam),gmail.getEmail(settings.getSizeSet(), inbox));
             data.write(bayesianSpam.words);
-            ui.showWords(data.readToShow());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -121,10 +123,10 @@ public class Application {
 
                 if(answerT <= 1 && answerT >=0){
                     settings.setSpamThreshold(answerT);
-                    ui.showSnippet("Successful");
-                    bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
+                    ui.showSnippet("successful");
+                    bayesianSpam.reconfig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("Unable to save changes");
+                    ui.showSnippet("No se realizo el cambio");
                 }
 
                 break;
@@ -137,10 +139,10 @@ public class Application {
 
                 if(answerP>= 0 && answerP <= 1){
                     settings.setSpamProbability(answerP);
-                    ui.showSnippet("Successful");
-                    bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
+                    ui.showSnippet("successful");
+                    bayesianSpam.reconfig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("Unable to save changes");
+                    ui.showSnippet("No se realizo el cambio");
                 }
                 break;
             case 3:
@@ -151,26 +153,27 @@ public class Application {
                 }catch (NumberFormatException e){}
                 if(answerS > 0){
                     settings.setSizeSet(answerS);
-                    ui.showSnippet("Successful");
-                    bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
+                    ui.showSnippet("successful");
+                    bayesianSpam.reconfig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("Unable to save changes");
+                    ui.showSnippet("No se realizo el cambio");
                 }
 
                 break;
             case 4:
-                ui.showSnippet("No changes were made.");
+                ui.showSnippet("No ha realizado ningún cambio");
                 break;
             default:
         }
     }
 
     private void filter() throws IOException {
-        if(true){ // Preguntar si el men ya entreno
+        if(data.archiveExist()){ // Preguntar si el men ya entreno
+            bayesianSpam.setWords(data.readToBayesian());
             bayesianSpam.filter(gmail.getEmail(settings.getSizeSet(),unread));
-
         } else{
             train();
+            bayesianSpam.filter(gmail.getEmail(settings.getSizeSet(),unread));
         }
     }
 
@@ -178,12 +181,8 @@ public class Application {
         System.exit(1);
     }
 
-    private void logOut()  {
-        try {
-            gmail.logOut();
-        } catch (IOException e) {
-
-        }
+    private void logOut(){
+        gmail.logOut();
     }
 
     public static void main (String args[]) {

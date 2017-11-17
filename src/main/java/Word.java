@@ -1,7 +1,7 @@
 public class Word {
     private String word;
-    private double frecuencyN;
-    private double frecuencyS;
+    private int frecuencyN;
+    private int frecuencyS;
 
     private double probabilityS;
     private double probabilityN;
@@ -12,17 +12,17 @@ public class Word {
         this.probabilityN = 0;
         this.probabilityS = 0;
     }
-    public Word(String word, double frecS, double frecN, double probS, double probN){
+    public Word(String word, int frecS, int frecN, double probS, double probN){
         this.word = word;
         this.frecuencyS = frecS;
         this.frecuencyN = frecN;
-        this.probabilityN = probS;
-        this.probabilityS = probN;
+        this.probabilityS = probS;
+        this.probabilityN = probN;
     }
-    public void setFrecuencyS(double frecuency){
+    public void setFrecuencyS(int frecuency){
         this.frecuencyS = frecuency;
     }
-    public void setFrecuencyN(double frecuency){
+    public void setFrecuencyN(int frecuency){
         this.frecuencyN = frecuency;
     }
     public void increaseFrecS(){
@@ -42,11 +42,11 @@ public class Word {
         return this.word;
     }
 
-    public double getFrecuencyS(){
+    public int getFrecuencyS(){
         return this.frecuencyS;
     }
 
-    public double getFrecuencyN(){
+    public int getFrecuencyN(){
         return this.frecuencyN;
     }
 

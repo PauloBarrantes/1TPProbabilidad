@@ -1,35 +1,28 @@
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-
-
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.gmail.GmailScopes;
-import com.google.api.services.gmail.model.*;
 import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
+
 import java.io.IOException;
-import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
-import com.google.api.client.repackaged.org.apache.commons.codec.binary.StringUtils;
-import java.util.Arrays;
-import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GmailRetriever {
 
@@ -76,21 +69,30 @@ public class GmailRetriever {
 
     private static Credential authorize() throws IOException {
         // Load client secrets.
+        System.out.print("1");
+
         InputStream in = GmailRetriever.class.getResourceAsStream("/client_secret.json");
+
+
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
         // Build flow and trigger user authorization request.
+        System.out.print("2");
+
         GoogleAuthorizationCodeFlow flow =
                 new GoogleAuthorizationCodeFlow.Builder(
                         HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
                         .setDataStoreFactory(DATA_STORE_FACTORY)
                         .setAccessType("offline")
                         .build();
+        System.out.print("3");
+
         Credential credential = new AuthorizationCodeInstalledApp(
                 flow, new LocalServerReceiver()).authorize("user");
         System.out.println(
                 "Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
         return credential;
+
     }
 
     public static Gmail getGmailService() throws IOException {
@@ -111,13 +113,16 @@ public class GmailRetriever {
     /**
      *
      */
-    public void logOut() throws IOException {
+    public void logOut(){
+        String dir = DATA_STORE_DIR.getAbsolutePath();
 
-        String path = DATA_STORE_DIR.getAbsolutePath();
-        File file = new File(path);
-        System.out.println(path);
-        System.out.println("Loging Out...");
-        file.delete();
+        Path filePath = Paths.get(dir);
+        try {
+            System.out.println("Borrando Credenciales");
+            Files.delete(filePath); // Se cae acá
+        } catch(IOException ioException) {
+            ioException.printStackTrace();
+        }
 
     }
 
@@ -125,6 +130,7 @@ public class GmailRetriever {
      * List all Messages of the user's mailbox matching the query.
      *
      * @param size Authorized Gmail API instance.
+     * @param label
      * @throws IOException
      */
     public List<Email> getEmail(int size, String label) throws IOException {
@@ -135,9 +141,8 @@ public class GmailRetriever {
 
       // Print the labels in the user's account.
       user = "me";
-      String query = label;
 
-      ListMessagesResponse response = service.users().messages().list(user).setQ(query).execute();
+        ListMessagesResponse response = service.users().messages().list(user).setQ(label).execute();
       List<Message> messages = new ArrayList<>();
 
       while (response.getMessages() != null) {
@@ -145,7 +150,7 @@ public class GmailRetriever {
           messages.addAll(response.getMessages());
           if (response.getNextPageToken() != null) {
               String pageToken = response.getNextPageToken();
-              response = service.users().messages().list(user).setQ(query).setPageToken(pageToken).execute();
+              response = service.users().messages().list(user).setQ(label).setPageToken(pageToken).execute();
           } else {
               break;
           }
@@ -166,7 +171,7 @@ public class GmailRetriever {
                 list.add(mail);
                 ++counter;
             }
-        }catch (NullPointerException e){
+        }catch (NullPointerException ignored){
         }
       }
 
