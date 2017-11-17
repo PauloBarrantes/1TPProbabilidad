@@ -64,13 +64,13 @@ public class GmailRetriever {
    static {
        try {
           HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-           DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR); // Está linea da problemas
+          DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR); // Está linea da problemas
       } catch (Throwable t) {
-           System.out.println("Se salió");
         t.printStackTrace();
         System.exit(1);
     }
    }
+
 
     private static Credential authorize() throws IOException {
         // Load client secrets.
@@ -93,13 +93,13 @@ public class GmailRetriever {
 
     public static Gmail getGmailService() throws IOException {
         Credential credential = authorize();
+
         return new Gmail.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential).setApplicationName(APPLICATION_NAME).build();
     }
 
     public void logIn() throws IOException {
         String user = "me";
         Gmail service = getGmailService();
-        System.out.println("Aquí nice");
     }
 
     public boolean existCredentials(){
@@ -123,10 +123,12 @@ public class GmailRetriever {
     }
 
     /**
-     * @return
+     * List all Messages of the user's mailbox matching the query.
+     *
+     * @param size Authorized Gmail API instance.
      * @throws IOException
      */
-    public List<Email> getEmail() throws IOException {
+    public List<Email> getEmail(int size, String label) throws IOException {
 
       List<Email> list = new ArrayList<>();
 
@@ -134,16 +136,12 @@ public class GmailRetriever {
 
       // Print the labels in the user's account.
       String user = "me";
-      String query = "in:Spam";
-
-        System.out.println("1");
+      String query = "in:Unread" ;
 
       ListMessagesResponse response = service.users().messages().list(user).setQ(query).execute();
       List<Message> messages = new ArrayList<>();
-        System.out.println("2");
 
       while (response.getMessages() != null) {
-          System.out.println("3");
 
           messages.addAll(response.getMessages());
           if (response.getNextPageToken() != null) {
@@ -153,31 +151,24 @@ public class GmailRetriever {
               break;
           }
       }
-        System.out.println("4");
-
-      for (Message message : messages) {
-          //System.out.println(message.toPrettyString());
-          System.out.println("5.1");
-          Message messagex;
-          System.out.println("5.2");
-
-          messagex = service.users().messages().get(user, message.getId()).setFormat("full").execute();
-          System.out.println("5.3");
-
-          //Get Body
-          byte[] bodyBytes = Base64.decodeBase64(messagex.getPayload().getParts().get(0).getBody().getData().trim().toString());
-          System.out.println("5.4");
-
-
-          String body = new String(bodyBytes, "UTF-8");
-          System.out.println("5.5");
-
-          String header = "Yeah";
-
-          Email mail = new Email("01", body,header,"paulo","SpamStalkers");
-          System.out.println(body);
-
-          list.add(mail);
+        // El array que estamos usando con mensajes tiene un tamaño como de 160, y en mi SPAM solo hay 33 mensajes
+      int counter = 0;
+    for (Message message : messages) {
+        try {
+            if(counter <= size){
+                Message messagex;
+                messagex = service.users().messages().get(user, message.getId()).setFormat("full").execute();
+                //Get Body
+                byte[] bodyBytes = Base64.decodeBase64(messagex.getPayload().getParts().get(0).getBody().getData().trim().toString());
+                String body = new String(bodyBytes, "UTF-8");
+                System.out.println(body);
+                String header = "Yeah";
+                Email mail = new Email("01", body,header,"paulo","SpamStalkers");
+                list.add(mail);
+                ++counter;
+            }
+        }catch (NullPointerException e){
+        }
       }
 
       return list;

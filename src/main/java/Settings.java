@@ -25,16 +25,12 @@ public class Settings {
     public void setSizeSet(int ss) {
         this.sizeSet = ss;
     }
-
-
     public double getSpamThreshold(){
         return this.SpamThreshold;
     }
-
     public double getSpamProbability(){
         return this.SpamProbability;
     }
-
     public int getSizeSet(){
         return this.sizeSet;
     }
