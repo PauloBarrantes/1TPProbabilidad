@@ -17,6 +17,12 @@ public class PersistenceManager {
         boolean bool = archivo.exists();
         return bool;
     }
+    public boolean existCredentials(){
+        File archivo = null;
+        archivo = new File (System.getProperty("user.home")+"/.credentials/BayesianSpamFilter/StoredCredential");
+        boolean bool = archivo.exists();
+        return bool;
+    }
     public List<Word> readToShow() throws FileNotFoundException {
         File archivo = null;
         FileReader fr = null;

@@ -69,7 +69,6 @@ public class GmailRetriever {
 
     private static Credential authorize() throws IOException {
         // Load client secrets.
-        System.out.print("1");
 
         InputStream in = GmailRetriever.class.getResourceAsStream("/client_secret.json");
 
@@ -77,7 +76,6 @@ public class GmailRetriever {
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
         // Build flow and trigger user authorization request.
-        System.out.print("2");
 
         GoogleAuthorizationCodeFlow flow =
                 new GoogleAuthorizationCodeFlow.Builder(
@@ -85,7 +83,6 @@ public class GmailRetriever {
                         .setDataStoreFactory(DATA_STORE_FACTORY)
                         .setAccessType("offline")
                         .build();
-        System.out.print("3");
 
         Credential credential = new AuthorizationCodeInstalledApp(
                 flow, new LocalServerReceiver()).authorize("user");
@@ -106,9 +103,7 @@ public class GmailRetriever {
       service = getGmailService();
     }
 
-    public boolean existCredentials(){
-        return false;
-    }
+
 
     /**
      *
