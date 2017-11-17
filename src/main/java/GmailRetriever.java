@@ -40,7 +40,8 @@ public class GmailRetriever {
      * Application name.
      */
 
-
+    protected Gmail service;
+    protected String user = "me";
     private static final String APPLICATION_NAME = "BayesianSpamFilter";
     /** Directory to store user credentials for this application. */
     private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"), ".credentials/BayesianSpamFilter");
@@ -98,8 +99,8 @@ public class GmailRetriever {
     }
 
     public void logIn() throws IOException {
-        String user = "me";
-        Gmail service = getGmailService();
+      user = "me";
+      service = getGmailService();
     }
 
     public boolean existCredentials(){
@@ -132,11 +133,11 @@ public class GmailRetriever {
 
       List<Email> list = new ArrayList<>();
 
-      Gmail service = getGmailService();
+      service = getGmailService();
 
       // Print the labels in the user's account.
-      String user = "me";
-      String query = "in:Unread" ;
+      user = "me";
+      String query = label;
 
       ListMessagesResponse response = service.users().messages().list(user).setQ(query).execute();
       List<Message> messages = new ArrayList<>();
@@ -163,7 +164,7 @@ public class GmailRetriever {
                 String body = new String(bodyBytes, "UTF-8");
                 System.out.println(body);
                 String header = "Yeah";
-                Email mail = new Email("01", body,header,"paulo","SpamStalkers");
+                Email mail = new Email(" ", body,header," "," ");
                 list.add(mail);
                 ++counter;
             }

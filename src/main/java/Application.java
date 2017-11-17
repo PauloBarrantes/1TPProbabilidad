@@ -11,9 +11,9 @@ public class Application {
     private GmailRetriever gmail = new GmailRetriever();
     private PersistenceManager data = new PersistenceManager();
     private UI ui = new UI();
-    private String spam = "Spam";
-    private String inbox = "Inbox";
-    private String unread = "Unread";
+    private String spam = "in:Spam";
+    private String inbox = "in:inbox category:primary";
+    private String unread = "in:inbox is:unread category:primary";
     boolean on = true;
     //JAVADOC //Constructor
     public Application() {
@@ -28,8 +28,6 @@ public class Application {
         // Si las credenciales no existen, hacemos el llamado al login
         if(!gmail.existCredentials()){
             ui.showMenu(1);
-
-
             int ans = 0;
             try {
                 ans = parseInt(ui.answerS());
@@ -87,17 +85,19 @@ public class Application {
     }
 
     private void train(){
-
+        // Cargamos las palabras que tengamos en el hashMap
+        try {
+            bayesianSpam.train(gmail.getEmail(settings.getSizeSet(),spam),gmail.getEmail(settings.getSizeSet(), inbox));
+            data.write(bayesianSpam.words);
+            ui.showWords(data.readToShow());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     void logIn() throws IOException {
-        if(gmail.existCredentials()){
-            gmail.logIn();
-        }else{
-            System.out.println("Ya hay una cuenta logueada, haga LogOut primero");
-        }
-
+        gmail.logIn();
     }
 
     private void showWords() throws FileNotFoundException {
@@ -118,8 +118,14 @@ public class Application {
                 try {
                     answerT = Double.parseDouble(ui.answerS());
                 }catch (NumberFormatException e){}
-                settings.setSpamThreshold(answerT);
-                ui.showSnippet("successful");
+
+                if(answerT <= 1 && answerT >=0){
+                    settings.setSpamThreshold(answerT);
+                    ui.showSnippet("successful");
+                    bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
+                }else{
+                    ui.showSnippet("No se realizo el cambio");
+                }
 
                 break;
             case 2:
@@ -128,9 +134,14 @@ public class Application {
                 try {
                     answerP = Double.parseDouble(ui.answerS());
                 }catch (NumberFormatException e){}
-                settings.setSpamProbability(answerP);
-                ui.showSnippet("successful");
 
+                if(answerP>= 0 && answerP <= 1){
+                    settings.setSpamProbability(answerP);
+                    ui.showSnippet("successful");
+                    bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
+                }else{
+                    ui.showSnippet("No se realizo el cambio");
+                }
                 break;
             case 3:
                 ui.showSnippet("SizeSet:");
@@ -138,8 +149,13 @@ public class Application {
                 try {
                     answerS = parseInt(ui.answerS());
                 }catch (NumberFormatException e){}
-                settings.setSizeSet(answerS);
-                ui.showSnippet("successful");
+                if(answerS > 0){
+                    settings.setSizeSet(answerS);
+                    ui.showSnippet("successful");
+                    bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
+                }else{
+                    ui.showSnippet("No se realizo el cambio");
+                }
 
                 break;
             case 4:
@@ -152,6 +168,7 @@ public class Application {
     private void filter() throws IOException {
         if(true){ // Preguntar si el men ya entreno
             bayesianSpam.filter(gmail.getEmail(settings.getSizeSet(),unread));
+
         } else{
             train();
         }

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.io.*;
 import java.util.StringTokenizer;
@@ -14,14 +15,15 @@ public class PersistenceManager {
         FileReader fr = null;
         BufferedReader br = null;
         List<Word> list = new ArrayList<Word>();
-        String hil = "";
-        String frecS = "";
-        String probS = "";
 
-        double frec = 0;
-        double prob = 0;
+        String lecture = "";
+        String hil = "";
+        double frecS = 0;
+        double frecN = 0;
+        double probS = 0;
+        double probN = 0;
         try {
-            archivo = new File ("C:\\words.txt");
+            archivo = new File ("C:\\Users\\Paulo\\Words.txt");
             fr = new FileReader (archivo);
             br = new BufferedReader(fr);
 
@@ -29,13 +31,17 @@ public class PersistenceManager {
             String line;
             while((line=br.readLine())!=null){
                 StringTokenizer Stword = new StringTokenizer(line);
-                hil = Stword.nextElement().toString();
-                frecS = Stword.nextElement().toString();
-                frec = Double.parseDouble(frecS);
-                probS = Stword.nextElement().toString();
-                prob = Double.parseDouble(probS);
 
-                Word w = new Word(hil,frec,prob);
+                hil = Stword.nextElement().toString();
+                lecture = Stword.nextElement().toString();
+                frecS = Double.parseDouble(lecture);
+                lecture = Stword.nextElement().toString();
+                frecN = Double.parseDouble(lecture);
+                lecture = Stword.nextElement().toString();
+                probS = Double.parseDouble(lecture);
+                lecture = Stword.nextElement().toString();
+                probN = Double.parseDouble(lecture);
+                Word w = new Word(hil,frecS,frecN,probS, probN);
                 list.add(w);
 
             }
@@ -56,24 +62,22 @@ public class PersistenceManager {
         // Cargar en una lista las palabras que están en un archivo
         return list;
     }
-    public void write( List<Word> words) {
+    public void write( HashMap<String,Word> words) {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("c:/words.txt");
+            fichero = new FileWriter("C:\\Users\\Paulo\\Words.txt");
             pw = new PrintWriter(fichero);
 
-            for (Word i : words) {
-                pw.println(i.getWord() + " " + i.getFrecuency() + " " + i.getProbability());
-            }
-
+            PrintWriter finalPw = pw;
+            words.forEach((k, v) -> {
+                finalPw.println(v.getWord() + " " + v.getFrecuencyS() + " " + v.getFrecuencyN() + " " +  v.getProbabilityS() + " " + v.getProbabilityN());
+            });
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                // Nuevamente aprovechamos el finally para
-                // asegurarnos que se cierra el fichero.
                 if (null != fichero)
                     fichero.close();
             } catch (Exception e2) {

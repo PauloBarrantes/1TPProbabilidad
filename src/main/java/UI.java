@@ -37,7 +37,7 @@ public class UI {
         System.out.println("-----------------------------------------------------------------------------");
         for (Word w : words){
             System.out.format("%10s %30s %20s",
-                   w.getWord(), w.getFrecuency(), w.getProbability());
+                   w.getWord(), w.getFrecuencyS(), w.getProbabilityS());
             System.out.println();
         }
     }
