@@ -114,7 +114,7 @@ public class BayesianSpamFilter {
             probWordNoSpam(v,finalCardinalityN);
         });
 
-        System.out.println("Cardinalidad SPam:" + cardinalityS);
+        System.out.println("Cardinalidad Spam:" + cardinalityS);
         System.out.println("Cardinalidad Normal:" + cardinalityN);
 
     }

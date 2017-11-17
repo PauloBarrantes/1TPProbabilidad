@@ -17,18 +17,20 @@ import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 import java.io.IOException;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.NoSuchFileException;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.StringUtils;
+import java.util.Arrays;
+import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
 
 public class GmailRetriever {
 
@@ -110,17 +112,16 @@ public class GmailRetriever {
     /**
      *
      */
-    public void logOut(){
+    public void logOut() throws IOException {
         String dir = DATA_STORE_DIR.getAbsolutePath();
+        Path path = Paths.get(dir);
 
-        Path filePath = Paths.get(dir);
         try {
-            System.out.println("Borrando Credenciales");
-            Files.delete(filePath); // Se cae acá
-        } catch(IOException ioException) {
-            ioException.printStackTrace();
+            System.out.println("Loging Out...");
+            Files.delete(path);
+        } catch (NoSuchFileException x) {
+            System.err.format("Already Loged Out");
         }
-
     }
 
     /**

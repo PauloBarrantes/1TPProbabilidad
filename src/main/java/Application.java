@@ -36,7 +36,7 @@ public class Application {
             if(ans == 1){
                 logIn();
             }else{
-                if(ans == 2){
+                if(ans == 0){
                     exit();
                 }else{
                     System.out.println("Invalid Option");
@@ -72,7 +72,7 @@ public class Application {
                     logOut();
                     break;
 
-                case 6:
+                case 0:
                     exit();
                     break;
                 default:
@@ -121,7 +121,7 @@ public class Application {
 
                 if(answerT <= 1 && answerT >=0){
                     settings.setSpamThreshold(answerT);
-                    ui.showSnippet("successful");
+                    ui.showSnippet("Successful");
                     bayesianSpam.recofig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
                     ui.showSnippet("No se realizo el cambio");
@@ -178,8 +178,12 @@ public class Application {
         System.exit(1);
     }
 
-    private void logOut(){
-        gmail.logOut();
+    private void logOut()  {
+        try {
+            gmail.logOut();
+        } catch (IOException e) {
+
+        }
     }
 
     public static void main (String args[]) {
