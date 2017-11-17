@@ -36,7 +36,7 @@ public class Application {
             if(ans == 1){
                 logIn();
             }else{
-                if(ans == 2){
+                if(ans == 0){
                     exit();
                 }else{
                     System.out.println("Invalid Option");
@@ -72,7 +72,7 @@ public class Application {
                     logOut();
                     break;
 
-                case 6:
+                case 0:
                     exit();
                     break;
                 default:
@@ -160,7 +160,7 @@ public class Application {
                 }
 
                 break;
-            case 4:
+            case 0:
                 ui.showSnippet("No ha realizado ningún cambio");
                 break;
             default:
@@ -181,8 +181,12 @@ public class Application {
         System.exit(1);
     }
 
-    private void logOut(){
-        gmail.logOut();
+    private void logOut()  {
+        try {
+            gmail.logOut();
+        } catch (IOException e) {
+
+        }
     }
 
     public static void main (String args[]) {

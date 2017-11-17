@@ -16,7 +16,7 @@ public class UI {
         if(menu == 1){
             System.out.println("Welcome to the Bayesian Spam Filter ");
             System.out.println(" ( 1 ) Authenticate ");
-            System.out.println(" ( 2 ) Exit ");
+            System.out.println(" ( 0 ) Exit ");
         }else{
             if(menu == 2){
                 System.out.println("Choose an Option: ");
@@ -25,7 +25,7 @@ public class UI {
                 System.out.println(" ( 3 ) Show Data");
                 System.out.println(" ( 4 ) Get New Mail ");
                 System.out.println(" ( 5 ) Log Out ");
-                System.out.println(" ( 6 ) Exit ");
+                System.out.println(" ( 0 ) Exit ");
             }
         }
     }
@@ -54,7 +54,7 @@ public class UI {
         System.out.println(" ( 1 ) SpamThreshold ");
         System.out.println(" ( 2 ) SpamProbability");
         System.out.println(" ( 3 ) SizeSet");
-        System.out.println(" ( 4 ) Exit");
+        System.out.println(" ( 0 ) Exit");
 
     }
     public void showSnippet(String snippet){

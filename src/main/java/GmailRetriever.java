@@ -13,7 +13,7 @@ import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
-
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -113,17 +113,14 @@ public class GmailRetriever {
     /**
      *
      */
-    public void logOut(){
-        String dir = DATA_STORE_DIR.getAbsolutePath();
-
-        Path filePath = Paths.get(dir);
-        try {
-            System.out.println("Borrando Credenciales");
-            Files.delete(filePath); // Se cae acá
-        } catch(IOException ioException) {
-            ioException.printStackTrace();
-        }
-
+    public void logOut() throws IOException {
+        String path = System.getProperty("user.home") + "/.credentials/BayesianSpamFilter/StoredCredential";
+        //String path = DATA_STORE_DIR.getAbsolutePath();
+        File file = new File(path);
+        System.out.println(path);
+        System.out.println("Loging Out...");
+        file.delete();
+        service = null;
     }
 
     /**
@@ -137,7 +134,7 @@ public class GmailRetriever {
 
       List<Email> list = new ArrayList<>();
 
-      service = getGmailService();
+      //service = getGmailService();
 
       // Print the labels in the user's account.
       user = "me";
