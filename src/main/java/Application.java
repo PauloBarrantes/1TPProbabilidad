@@ -26,6 +26,7 @@ public class Application {
     }
     public void run() throws IOException {
         // Si las credenciales no existen, hacemos el llamado al login
+        do{
         if(!gmail.existCredentials()){
             ui.showMenu(1);
             int ans = 0;
@@ -44,7 +45,7 @@ public class Application {
             }
 
         }
-        do{
+
             ui.showMenu(2);
             int answerI = 0;
             try {
