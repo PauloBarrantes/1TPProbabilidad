@@ -54,7 +54,7 @@ public class GmailRetriever {
 
     /**
      * Creates credentials given that the user has a allowed the app to do so.
-     * 
+     *
      * @return credential
      * @throws IOException
      */
