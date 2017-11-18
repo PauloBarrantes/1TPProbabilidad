@@ -11,31 +11,65 @@ public class BayesianSpamFilter {
     private int sizeSet;
     public HashMap<String, Word> words = new HashMap<String, Word>();
 
-
+    /**
+     *  Constructor de la clase BayesianSpamFilter
+     * @param spamThreshold
+     * @param spamProbability
+     * @param sizeSet
+     */
     public BayesianSpamFilter(double spamThreshold, double spamProbability, int sizeSet){
         this.spamThreshold = spamThreshold;
         this.spamProbability = spamProbability;
         this.sizeSet = sizeSet;
     }
 
+    /**
+     *  Calculamos la probabilidad de que una palabra que entra como parámetro sea Spam
+     * @param W
+     * @param cardinalidadS
+     */
     private void probWordSpam(Word W, int cardinalidadS){
         double prob = W.getFrecuencyS();
         prob = prob / cardinalidadS;
         W.setProbabilityS(prob);
     }
+
+    /**
+     * Calculamos la probabilidad de que la palabra que entra como parámetro no sea Spam
+     * @param W
+     * @param cardinalidadN
+     */
     private void probWordNoSpam(Word W, int cardinalidadN){
         double prob = W.getFrecuencyN();
         prob = prob / cardinalidadN;
         W.setProbabilityN(prob);
     }
+
+    /**
+     *  Cambiamos las configuraciones del BayesianSpamFilter
+     * @param spamThreshold
+     * @param spamProbability
+     * @param sizeSet
+     */
     public void reconfig(double spamThreshold, double spamProbability, int sizeSet){
         this.spamThreshold = spamThreshold;
         this.spamProbability = spamProbability;
         this.sizeSet = sizeSet;
     }
+
+    /**
+     *  Cargamos el hashMap que tengamos para realizar los filtros de Spam correspondientes
+     * @param words
+     */
     public void setWords(HashMap<String, Word> words ){
         this.words = words;
     };
+
+    /**
+     * Determinamos por medio de cálculos de la ley de bayes para determinar si un correo es Spam
+     * @param mail
+     * @return bool
+     */
     public boolean sort(Email mail){
         boolean spam = false;
         double prob = 1.0;
@@ -79,7 +113,10 @@ public class BayesianSpamFilter {
         return spam;
     }
 
-
+    /**
+     * Recibimos una lista de correo, donde filtramos cada uno de ellos
+     * @param mails
+     */
     public void filter(List<Email> mails){
         for(Email m : mails){
             boolean spam = sort(m);
@@ -91,6 +128,13 @@ public class BayesianSpamFilter {
         }
     }
 
+    /**
+     * Entrenamos el filtro de Spam
+     *
+     *
+     * @param Spam
+     * @param Normal
+     */
     public void train (List<Email>Spam, List<Email>Normal) {
         int cardinalityS = 0;
         int cardinalityN = 0;
