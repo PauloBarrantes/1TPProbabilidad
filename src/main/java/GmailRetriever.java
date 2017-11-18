@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * @author B60930&B66605
  */
 public class GmailRetriever {
 
@@ -69,16 +69,14 @@ public class GmailRetriever {
     }
    }
 
-<<<<<<< HEAD
+
     /**
      * Creates credentials given that the user has a allowed the app to do so.
      *
      * @return credential
      * @throws IOException
      */
-=======
 
->>>>>>> parent of 46bcff2... documentation
     private static Credential authorize() throws IOException {
         // Load client secrets.
 
@@ -104,15 +102,12 @@ public class GmailRetriever {
 
     }
 
-<<<<<<< HEAD
     /**
      * Authorises the credentials through the Gmail Services.
      *
      * @return Gmail.Builder
      * @throws IOException
      */
-=======
->>>>>>> parent of 46bcff2... documentation
     public static Gmail getGmailService() throws IOException {
         Credential credential = authorize();
 
@@ -127,13 +122,10 @@ public class GmailRetriever {
 
 
     /**
-<<<<<<< HEAD
      * Creates a path to were the credentials had been saved, and proceeds to delete them afterwards, that way the user succesfully logs out.
      *
      * @throws IOException
-=======
      *
->>>>>>> parent of 46bcff2... documentation
      */
     public void logOut() throws IOException {
         String path = System.getProperty("user.home") + "/.credentials/BayesianSpamFilter/StoredCredential";

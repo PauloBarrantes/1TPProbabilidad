@@ -4,6 +4,9 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * @author B60930&B66605
+ */
 public class Application {
 
     private Settings settings = new Settings();
@@ -24,6 +27,11 @@ public class Application {
         }
 
     }
+
+    /**
+     *
+     * @throws IOException
+     */
     public void run() throws IOException {
         // Si las credenciales no existen, hacemos el llamado al login
         do{
@@ -85,6 +93,10 @@ public class Application {
 
     }
 
+    /**
+     *
+     *
+     */
     private void train(){
         // Cargamos las palabras que tengamos en el hashMap
         try {
@@ -99,14 +111,31 @@ public class Application {
 
     }
 
+    /**
+     *
+     *
+     *
+     * @throws IOException
+     */
     void logIn() throws IOException {
         gmail.logIn();
     }
 
+    /**
+     *
+     *
+     *
+     * @throws FileNotFoundException
+     */
     private void showWords() throws FileNotFoundException {
         ui.showWords(data.readToShow());
     }
 
+    /**
+     *
+     *
+     *
+     */
     private void adjustments(){
         ui.settingsMenu(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
         int answerI = 0;
@@ -178,10 +207,20 @@ public class Application {
         }
     }
 
+    /**
+     *
+     *
+     *
+     */
     private void exit () {
         System.exit(1);
     }
 
+    /**
+     *
+     *
+     *
+     */
     private void logOut()  {
         try {
             gmail.logOut();

@@ -1,5 +1,8 @@
 import java.util.List;
 import java.util.Scanner;
+/**
+ * @author B60930&B66605
+ */
 public class UI {
 
     private Scanner scanner = new Scanner(System.in);
@@ -8,10 +11,21 @@ public class UI {
 
 
     }
+
+    /**
+     *
+     *
+     * @return answerS
+     */
     public String answerS(){
         String answerS = scanner.nextLine();
         return answerS;
     }
+
+    /**
+     *
+     * @param menu
+     */
     public void showMenu(int menu){
         if(menu == 1){
             System.out.println("Welcome to the Bayesian Spam Filter ");
@@ -30,6 +44,11 @@ public class UI {
         }
     }
 
+    /**
+     *
+     *
+     * @param words
+     */
     public void showWords(List<Word> words) {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("%10s %30s %20s %30s %30s", "Word", "FrecuencyS","FrecuencyN", "ProbabilityS", "ProbabilityN");
@@ -41,6 +60,14 @@ public class UI {
             System.out.println();
         }
     }
+
+    /**
+     *
+     *
+     * @param SpamThreshold
+     * @param SpamProbability
+     * @param SizeSet
+     */
     public void settingsMenu(double SpamThreshold,double SpamProbability, int SizeSet){
         System.out.println("Settings:");
         System.out.println("-------------------------------------------");
@@ -57,6 +84,12 @@ public class UI {
         System.out.println(" ( 0 ) Exit");
 
     }
+
+    /**
+     *
+     *
+     * @param snippet
+     */
     public void showSnippet(String snippet){
         System.out.println(snippet);
     }
