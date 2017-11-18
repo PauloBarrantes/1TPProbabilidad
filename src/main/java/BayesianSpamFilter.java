@@ -3,38 +3,79 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * @author PauloBarrantes&BertaSánchez
+ *
+ *
+ */
 public class BayesianSpamFilter {
     private double spamThreshold;
     private double spamProbability; //
     private int sizeSet;
     public HashMap<String, Word> words = new HashMap<String, Word>();
 
-
+    /**
+     *
+     *
+     * @param spamThreshold
+     * @param spamProbability
+     * @param sizeSet
+     */
     public BayesianSpamFilter(double spamThreshold, double spamProbability, int sizeSet){
         this.spamThreshold = spamThreshold;
         this.spamProbability = spamProbability;
         this.sizeSet = sizeSet;
     }
 
+    /**
+     *
+     *
+     *
+     * @param W
+     * @param cardinalidadS
+     */
     private void probWordSpam(Word W, int cardinalidadS){
         double prob = W.getFrecuencyS();
         prob = prob / cardinalidadS;
         W.setProbabilityS(prob);
     }
+
+    /**
+     *
+     *
+     * @param W
+     * @param cardinalidadN
+     */
     private void probWordNoSpam(Word W, int cardinalidadN){
         double prob = W.getFrecuencyN();
         prob = prob / cardinalidadN;
         W.setProbabilityN(prob);
     }
+
+    /**
+     *
+     * @param spamThreshold
+     * @param spamProbability
+     * @param sizeSet
+     */
     public void reconfig(double spamThreshold, double spamProbability, int sizeSet){
         this.spamThreshold = spamThreshold;
         this.spamProbability = spamProbability;
         this.sizeSet = sizeSet;
     }
+    /*
+
+     */
     public void setWords(HashMap<String, Word> words ){
         this.words = words;
     };
-    private int count = 1;
+
+    /**
+     *
+     *
+     * @param mail
+     * @return boolean spam
+     */
     public boolean sort(Email mail){
         boolean spam = false;
         double prob = 1.0;
@@ -70,14 +111,17 @@ public class BayesianSpamFilter {
         if(prob>=spamThreshold){
             spam = true;
         }
-        System.out.println("Correo: " + count);
+        System.out.println("Correo: ");
         System.out.println(mail.getBody());
         System.out.println(prob);
-        ++count;
+
         return spam;
     }
 
-
+    /**
+     *
+     * @param mails
+     */
     public void filter(List<Email> mails){
         for(Email m : mails){
             boolean spam = sort(m);
@@ -89,6 +133,11 @@ public class BayesianSpamFilter {
         }
     }
 
+    /**
+     *
+     * @param Spam
+     * @param Normal
+     */
     public void train (List<Email>Spam, List<Email>Normal) {
         int cardinalityS = 0;
         int cardinalityN = 0;

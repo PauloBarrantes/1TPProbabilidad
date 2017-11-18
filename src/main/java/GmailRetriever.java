@@ -30,12 +30,13 @@ public class GmailRetriever {
 
     }
 
-    /**
-     * Application name.
-     */
+
 
     protected Gmail service;
     protected String user = "me";
+    /**
+     * Application name.
+     */
     private static final String APPLICATION_NAME = "BayesianSpamFilter";
     /** Directory to store user credentials for this application. */
     private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"), ".credentials/BayesianSpamFilter");

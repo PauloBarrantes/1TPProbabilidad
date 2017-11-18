@@ -7,22 +7,42 @@ import java.util.StringTokenizer;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * @author PauloBarrantes&BertaSánchez
+ */
 public class PersistenceManager {
     public PersistenceManager(){
 
     }
+
+    /**
+     *
+     * @return boolean bool
+     */
     public boolean archiveExist(){
         File archivo = null;
         archivo = new File (System.getProperty("user.home")+"/Documents/bayesian.txt");
         boolean bool = archivo.exists();
         return bool;
     }
+
+    /**
+     *
+     * @return  bool
+     */
     public boolean existCredentials(){
         File archivo = null;
         archivo = new File (System.getProperty("user.home")+"/.credentials/BayesianSpamFilter/StoredCredential");
         boolean bool = archivo.exists();
         return bool;
     }
+
+    /**
+     *
+     *
+     * @return listOfWords
+     * @throws FileNotFoundException
+     */
     public List<Word> readToShow() throws FileNotFoundException {
         File archivo = null;
         FileReader fr = null;
@@ -76,6 +96,13 @@ public class PersistenceManager {
         // Cargar en una lista las palabras que están en un archivo
         return list;
     }
+
+    /**
+     *
+     *
+     * @return HashMap<String, Word>
+     * @throws FileNotFoundException
+     */
     public HashMap<String,Word> readToBayesian() throws FileNotFoundException {
         File archivo = null;
         FileReader fr = null;
@@ -128,6 +155,13 @@ public class PersistenceManager {
         // Cargar en una lista las palabras que están en un archivo
         return list;
     }
+
+    /**
+     *
+     *
+     *
+     * @param  words
+     */
     public void write( HashMap<String,Word> words) {
         FileWriter fichero = null;
         PrintWriter pw = null;

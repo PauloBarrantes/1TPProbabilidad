@@ -1,3 +1,10 @@
+/**
+ * @author PauloBarrantes&BertaSanchéz
+ * @
+ *
+ *
+ */
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +31,13 @@ public class Application {
         }
 
     }
+
+    /**
+     *
+     *
+     *
+     * @throws IOException
+     */
     public void run() throws IOException {
         // Si las credenciales no existen, hacemos el llamado al login
         do{
@@ -85,6 +99,11 @@ public class Application {
 
     }
 
+    /**
+     *
+     *
+     *
+     */
     private void train(){
         // Cargamos las palabras que tengamos en el hashMap
         try {
@@ -99,14 +118,29 @@ public class Application {
 
     }
 
+    /**
+     *
+     *
+     * @throws IOException
+     */
     void logIn() throws IOException {
         gmail.logIn();
     }
 
+    /**
+     *
+     *
+     *
+     * @throws FileNotFoundException
+     */
     private void showWords() throws FileNotFoundException {
         ui.showWords(data.readToShow());
     }
 
+    /**
+     *
+     *
+     */
     private void adjustments(){
         ui.settingsMenu(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
         int answerI = 0;
@@ -168,6 +202,11 @@ public class Application {
         }
     }
 
+    /**
+     *
+     *
+     * @throws IOException
+     */
     private void filter() throws IOException {
         if(data.archiveExist()){ // Preguntar si el men ya entreno
             bayesianSpam.setWords(data.readToBayesian());
@@ -178,10 +217,19 @@ public class Application {
         }
     }
 
+    /**
+     *  Finaliza el programa
+     *
+     *
+     */
     private void exit () {
         System.exit(1);
     }
 
+    /**
+     *
+     *
+     */
     private void logOut()  {
         try {
             gmail.logOut();
