@@ -130,8 +130,6 @@ public class GmailRetriever {
 
       List<Email> list = new ArrayList<>();
 
-      //service = getGmailService();
-
       // Print the labels in the user's account.
       user = "me";
 

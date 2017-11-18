@@ -89,6 +89,7 @@ public class BayesianSpamFilter {
         StringTokenizer header = new StringTokenizer(mail.getHeader());
         double NoSpamProbability = 1-spamProbability;
         System.out.println("Tamaño del hashmap" + words.size());
+        System.out.println("Hashmap Size" + words.size());
         while(body.hasMoreElements()){
             W = body.nextElement().toString();
             if(words.containsKey(W)) {
@@ -112,6 +113,7 @@ public class BayesianSpamFilter {
             spam = true;
         }
         System.out.println("Correo: ");
+        System.out.println("Email: " + count);
         System.out.println(mail.getBody());
         System.out.println(prob);
 
@@ -127,8 +129,10 @@ public class BayesianSpamFilter {
             boolean spam = sort(m);
             if(spam == true){
                 System.out.println("El mail probablemente es Spam");
+                System.out.println("Email's probably Spam");
             }else{
                 System.out.println("El mail probablemente no es Spam");
+                System.out.println("Email's probably not Spam");
             }
         }
     }
@@ -195,6 +199,8 @@ public class BayesianSpamFilter {
 
         System.out.println("Cardinalidad Spam:" + cardinalityS);
         System.out.println("Cardinalidad Normal:" + cardinalityN);
+        System.out.println("Amount of Spam Mail:" + cardinalityS);
+        System.out.println("Amount of Regular Mail :" + cardinalityN);
 
     }
 
