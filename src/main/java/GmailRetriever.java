@@ -54,6 +54,7 @@ public class GmailRetriever {
 
     /**
      * Creates credentials given that the user has a allowed the app to do so.
+     * 
      * @return credential
      * @throws IOException
      */
@@ -79,6 +80,7 @@ public class GmailRetriever {
 
     /**
      * Authorises the credentials through the Gmail Services.
+     *
      * @return Gmail.Builder
      * @throws IOException
      */
@@ -97,7 +99,8 @@ public class GmailRetriever {
     }
 
     /**
-     * Creates a path to were the credentials had been saved, and proceeds to delete them afterwards, that way the user succesfully logs out. 
+     * Creates a path to were the credentials had been saved, and proceeds to delete them afterwards, that way the user succesfully logs out.
+     *
      * @throws IOException
      */
     public void logOut() throws IOException {
