@@ -34,6 +34,7 @@ public class BayesianSpamFilter {
     public void setWords(HashMap<String, Word> words ){
         this.words = words;
     };
+    private int count = 1;
     public boolean sort(Email mail){
         boolean spam = false;
         double prob = 1.0;
@@ -50,9 +51,14 @@ public class BayesianSpamFilter {
         while(body.hasMoreElements()){
             W = body.nextElement().toString();
             if(words.containsKey(W)) {
-                numerador = numerador * (words.get(W).getProbabilityS() * spamProbability);
-                denominador1 = denominador1 * (words.get(W).getProbabilityS() * spamProbability);
-                denominador2 = denominador2 * (words.get(W).getProbabilityN() * NoSpamProbability);
+                if(words.get(W).getProbabilityS() > 0){
+                    numerador = numerador * (words.get(W).getProbabilityS() * spamProbability);
+                    denominador1 = denominador1 * (words.get(W).getProbabilityS() * spamProbability);
+                }
+                if(words.get(W).getProbabilityN() > 0){
+                    denominador2 = denominador2 * (words.get(W).getProbabilityN() * NoSpamProbability);
+                }
+
                 System.out.println("Numerador " + numerador);
                 System.out.println("Denominador1 " +denominador1 );
                 System.out.println("D2:" + denominador2);
@@ -61,14 +67,13 @@ public class BayesianSpamFilter {
         }
         denominador = denominador1 + denominador2;
         prob = numerador/denominador;
-        while(header.hasMoreElements()){
-            W = header.nextElement().toString();
-        }
         if(prob>=spamThreshold){
             spam = true;
         }
+        System.out.println("Correo: " + count);
+        System.out.println(mail.getBody());
         System.out.println(prob);
-
+        ++count;
         return spam;
     }
 

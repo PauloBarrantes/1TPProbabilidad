@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d0ab8d7-bff5-4fe2-9633-165f07069dff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/Application.class" afterPath="$PROJECT_DIR$/out/production/classes/Application.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/BayesianSpamFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/BayesianSpamFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/GmailRetriever.class" afterPath="$PROJECT_DIR$/out/production/classes/GmailRetriever.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Application.java" afterPath="$PROJECT_DIR$/src/main/java/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java" afterPath="$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/GmailRetriever.java" afterPath="$PROJECT_DIR$/src/main/java/GmailRetriever.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/PersistenceManager.java" afterPath="$PROJECT_DIR$/src/main/java/PersistenceManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -17,6 +20,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Desktop$BSF.coverage" NAME="BSF Coverage Results" MODIFIED="1510966673300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -24,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GmailRetriever.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GmailRetriever.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GmailRetriever.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-78">
-              <caret line="102" column="31" lean-forward="false" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="31" />
+            <state relative-caret-position="413">
+              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,24 +43,24 @@
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="102" column="16" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+            <state relative-caret-position="-7">
+              <caret line="156" column="49" lean-forward="true" selection-start-line="156" selection-start-column="49" selection-end-line="156" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5639#5640#0" expanded="true" />
                 <element signature="e#5669#5670#0" expanded="true" />
-                <element signature="e#5839#5840#0" expanded="true" />
-                <element signature="e#5888#5889#0" expanded="true" />
+                <element signature="e#5859#5860#0" expanded="true" />
+                <element signature="e#5908#5909#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BayesianSpamFilter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BayesianSpamFilter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1269">
-              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+            <state relative-caret-position="47">
+              <caret line="58" column="47" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="47" />
               <folding>
                 <element signature="e#296#310#0" expanded="true" />
                 <element signature="e#1158#1159#0" expanded="true" />
@@ -67,7 +73,7 @@
       <file leaf-file-name="UI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="-7">
               <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -79,8 +85,8 @@
       <file leaf-file-name="PersistenceManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/PersistenceManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="30" />
+            <state relative-caret-position="1166">
+              <caret line="112" column="13" lean-forward="true" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
               <folding>
                 <element signature="e#936#942#0" expanded="true" />
                 <element signature="e#2725#2738#0" expanded="true" />
@@ -515,10 +521,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Word.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settings.java" />
         <option value="$PROJECT_DIR$/src/main/java/UI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/PersistenceManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/GmailRetriever.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java" />
       </list>
     </option>
   </component>
@@ -535,7 +541,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -548,41 +554,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BayesianSpamFilter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BayesianSpamFilter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BayesianSpamFilter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Desktop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BayesianSpamFilter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
@@ -783,7 +755,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72466000" />
+    <option name="totallyTimeSpent" value="76738000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,7 +768,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -806,8 +777,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21960072" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27249357" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.533419" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -950,8 +922,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#5639#5640#0" expanded="true" />
             <element signature="e#5669#5670#0" expanded="true" />
-            <element signature="e#5839#5840#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5908#5909#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -996,8 +968,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#5639#5640#0" expanded="true" />
             <element signature="e#5669#5670#0" expanded="true" />
-            <element signature="e#5839#5840#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5908#5909#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1085,8 +1057,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#5639#5640#0" expanded="true" />
             <element signature="e#5669#5670#0" expanded="true" />
-            <element signature="e#5839#5840#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5908#5909#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1174,8 +1146,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#5639#5640#0" expanded="true" />
             <element signature="e#5669#5670#0" expanded="true" />
-            <element signature="e#5839#5840#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5908#5909#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1272,39 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PersistenceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="e#936#942#0" expanded="true" />
-            <element signature="e#2725#2738#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
-          <folding>
-            <element signature="e#296#310#0" expanded="true" />
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1316,25 +1255,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Application.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="102" column="16" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+        <state relative-caret-position="-7">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5639#5640#0" expanded="true" />
-            <element signature="e#5669#5670#0" expanded="true" />
-            <element signature="e#5839#5840#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PersistenceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1166">
+          <caret line="112" column="13" lean-forward="true" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+          <folding>
+            <element signature="e#936#942#0" expanded="true" />
+            <element signature="e#2725#2738#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GmailRetriever.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="102" column="31" lean-forward="false" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="31" />
+        <state relative-caret-position="413">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="156" column="49" lean-forward="true" selection-start-line="156" selection-start-column="49" selection-end-line="156" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5639#5640#0" expanded="true" />
+            <element signature="e#5669#5670#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5908#5909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BayesianSpamFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="58" column="47" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="47" />
+          <folding>
+            <element signature="e#296#310#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

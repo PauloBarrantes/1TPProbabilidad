@@ -185,6 +185,7 @@ public class Application {
     private void logOut()  {
         try {
             gmail.logOut();
+            exit();
         } catch (IOException e) {
 
         }

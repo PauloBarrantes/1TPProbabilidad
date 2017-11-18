@@ -157,7 +157,6 @@ public class GmailRetriever {
                 //Get Body
                 byte[] bodyBytes = Base64.decodeBase64(messagex.getPayload().getParts().get(0).getBody().getData().trim().toString());
                 String body = new String(bodyBytes, "UTF-8");
-                System.out.println(body);
                 String header = "Yeah";
                 Email mail = new Email(" ", body,header," "," ");
                 list.add(mail);
