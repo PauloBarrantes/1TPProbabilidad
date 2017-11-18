@@ -27,7 +27,6 @@ public class Application {
     public void run() throws IOException {
         // Si las credenciales no existen, hacemos el llamado al login
         do{
-        if(!data.existCredentials()){
             ui.showMenu(1);
             int ans = 0;
             try {
@@ -36,49 +35,50 @@ public class Application {
 
             if(ans == 1){
                 logIn();
-            }else{
-                if(ans == 0){
+            } else {
+                if (ans == 0) {
                     exit();
-                }else{
+                } else {
                     System.out.println("Invalid Option");
                 }
             }
 
-        }
+            if (data.existCredentials()) {
+                ui.showMenu(2);
+                int answerI = 0;
+                try {
+                    answerI = parseInt(ui.answerS());
+                } catch (NumberFormatException e) {
+                }
 
-            ui.showMenu(2);
-            int answerI = 0;
-            try {
-                answerI = parseInt(ui.answerS());
-            }catch (NumberFormatException e){}
+                switch (answerI) {
+                    case 1:
+                        adjustments();
+                        break;
 
-            switch (answerI) {
-                case 1:
-                    adjustments();
-                    break;
+                    case 2:
+                        train();
+                        break;
 
-                case 2:
-                    train();
-                    break;
+                    case 3:
+                        showWords();
+                        break;
 
-                case 3:
-                    showWords();
-                    break;
+                    case 4:
+                        filter();
+                        break;
 
-                case 4:
-                    filter();
-                    break;
+                    case 5:
+                        logOut();
+                        break;
 
-                case 5:
-                    logOut();
-                    break;
+                    case 0:
+                        exit();
+                        break;
+                    default:
 
-                case 0:
-                    exit();
-                    break;
-                default:
-
-                    break;
+                        break;
+                }
             }
         }while (true);
 
