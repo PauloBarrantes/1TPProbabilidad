@@ -5,7 +5,7 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 /**
- * @author B60930&B66605
+ * @author Paulo Barrantes & Berta Sánchez
  */
 public class Application {
 
@@ -18,17 +18,18 @@ public class Application {
     private String inbox = "in:inbox category:primary";
     private String unread = "in:inbox is:unread category:primary";
     boolean on = true;
-    //JAVADOC //Constructor
+
+
     public Application() {
         try {
             run();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
+     * Calls each function depending on the user's input.
      *
      * @throws IOException
      */
@@ -94,11 +95,9 @@ public class Application {
     }
 
     /**
-     *
-     *
+     * Loads the hashmap with Word type objects.
      */
     private void train(){
-        // Cargamos las palabras que tengamos en el hashMap
         try {
             if(data.archiveExist()){
                 //Cargamos las palabras al hashMap
@@ -108,12 +107,10 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
-     *
-     *
+     * Calls the log-in function from the GmailRetriever class.
      *
      * @throws IOException
      */
@@ -122,8 +119,7 @@ public class Application {
     }
 
     /**
-     *
-     *
+     * Displays each word with its respective Spam Mail Probability & Frequency and Regular Mail Probability & Frequency.
      *
      * @throws FileNotFoundException
      */
@@ -132,9 +128,7 @@ public class Application {
     }
 
     /**
-     *
-     *
-     *
+     * Settings for the Spam Threshold, Spam Probability and the Size of the amount of emails that will be retrieved.
      */
     private void adjustments(){
         ui.settingsMenu(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
@@ -153,10 +147,10 @@ public class Application {
 
                 if(answerT <= 1 && answerT >=0){
                     settings.setSpamThreshold(answerT);
-                    ui.showSnippet("successful");
+                    ui.showSnippet("Successful");
                     bayesianSpam.reconfig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("No se realizo el cambio");
+                    ui.showSnippet("Unable to save changes");
                 }
 
                 break;
@@ -169,10 +163,10 @@ public class Application {
 
                 if(answerP>= 0 && answerP <= 1){
                     settings.setSpamProbability(answerP);
-                    ui.showSnippet("successful");
+                    ui.showSnippet("Successful");
                     bayesianSpam.reconfig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("No se realizo el cambio");
+                    ui.showSnippet("Unable to save changes");
                 }
                 break;
             case 3:
@@ -183,20 +177,24 @@ public class Application {
                 }catch (NumberFormatException e){}
                 if(answerS > 0){
                     settings.setSizeSet(answerS);
-                    ui.showSnippet("successful");
+                    ui.showSnippet("Successful");
                     bayesianSpam.reconfig(settings.getSpamThreshold(),settings.getSpamProbability(),settings.getSizeSet());
                 }else{
-                    ui.showSnippet("No se realizo el cambio");
+                    ui.showSnippet("Unable to save changes");
                 }
 
                 break;
             case 0:
-                ui.showSnippet("No ha realizado ningún cambio");
+                ui.showSnippet("No changes were made");
                 break;
             default:
         }
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     private void filter() throws IOException {
         if(data.archiveExist()){ // Preguntar si el men ya entreno
             bayesianSpam.setWords(data.readToBayesian());

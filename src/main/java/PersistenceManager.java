@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 import static java.lang.Integer.parseInt;
 /**
- * @author B60930&B66605
+ * @author Paulo Barrantes & Berta Sánchez
  */
 public class PersistenceManager {
     public PersistenceManager(){

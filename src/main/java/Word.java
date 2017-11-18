@@ -1,5 +1,5 @@
 /**
- * @author B60930&B66605
+ * @author Paulo Barrantes & Berta Sánchez
  */
 public class Word {
     private String word;

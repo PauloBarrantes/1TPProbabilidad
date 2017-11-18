@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
 /**
- * @author B60930&B66605
+ * @author Paulo Barrantes & Berta Sánchez
  */
 public class UI {
 

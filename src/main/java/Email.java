@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 /**
- * @author B60930&B66605
+ * @author Paulo Barrantes & Berta Sánchez
  */
 public class Email {
     private String id;
