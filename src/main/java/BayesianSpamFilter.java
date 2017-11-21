@@ -88,10 +88,10 @@ public class BayesianSpamFilter {
             if(words.containsKey(W)) {
                 if(words.get(W).getProbabilityS() > 0){
                     numerador = numerador * (words.get(W).getProbabilityS()* spamProbability);
-                    denominador1 = denominador1 * (words.get(W).getProbabilityS() * NoSpamProbability);
+                    denominador1 = denominador1 * (words.get(W).getProbabilityS() * spamProbability);
                 }
                 if(words.get(W).getProbabilityN() > 0){
-                    denominador2 = denominador2 * (words.get(W).getProbabilityN());
+                    denominador2 = denominador2 * (words.get(W).getProbabilityN() * NoSpamProbability);
                 }
 
                 System.out.println("Numerador " + numerador);
