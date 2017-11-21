@@ -87,8 +87,8 @@ public class BayesianSpamFilter {
             W = body.nextElement().toString();
             if(words.containsKey(W)) {
                 if(words.get(W).getProbabilityS() > 0){
-                    numerador = numerador * (words.get(W).getProbabilityS());
-                    denominador1 = denominador1 * (words.get(W).getProbabilityS() );
+                    numerador = numerador * (words.get(W).getProbabilityS()* spamProbability);
+                    denominador1 = denominador1 * (words.get(W).getProbabilityS() * NoSpamProbability);
                 }
                 if(words.get(W).getProbabilityN() > 0){
                     denominador2 = denominador2 * (words.get(W).getProbabilityN());
@@ -100,16 +100,17 @@ public class BayesianSpamFilter {
             }
 
         }
-        denominador1 = denominador1 * spamProbability;
-        denominador2 = denominador2 * NoSpamProbability;
+
         denominador = denominador1 + denominador2;
         prob = numerador/denominador;
+        prob = 1 - prob;
         if(prob>=spamThreshold){
             spam = true;
         }
         System.out.println("Email: ");
         System.out.println(mail.getBody());
-        System.out.println(prob);
+        System.out.println("Probabilidad: "+prob);
+
         return spam;
     }
 
