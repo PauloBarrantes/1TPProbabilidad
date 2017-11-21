@@ -100,7 +100,7 @@ public class Application {
     private void train(){
         try {
             if(data.archiveExist()){
-                //Cargamos las palabras al hashMap
+                bayesianSpam.setWords(data.readToBayesian());
             }
             bayesianSpam.train(gmail.getEmail(settings.getSizeSet(),spam),gmail.getEmail(settings.getSizeSet(), inbox));
             data.write(bayesianSpam.words);

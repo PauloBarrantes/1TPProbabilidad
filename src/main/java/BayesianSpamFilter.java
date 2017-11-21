@@ -77,6 +77,8 @@ public class BayesianSpamFilter {
         double denominador1 = 1.0;
         double denominador2 = 1.0;
         double denominador = 1.0;
+        boolean denominadorB1 = true;
+        boolean denominadorB2 = true;
 
         String W = " ";
         StringTokenizer body = new StringTokenizer(mail.getBody());
@@ -86,12 +88,18 @@ public class BayesianSpamFilter {
         while(body.hasMoreElements()){
             W = body.nextElement().toString();
             if(words.containsKey(W)) {
+                System.out.println("PALABRA: " + words.get(W).getWord());
+                System.out.println("Numerador " + numerador);
+                System.out.println("Denominador1 " +denominador1 );
+                System.out.println("D2:" + denominador2);
                 if(words.get(W).getProbabilityS() > 0){
                     numerador = numerador * (words.get(W).getProbabilityS()* spamProbability);
                     denominador1 = denominador1 * (words.get(W).getProbabilityS() * spamProbability);
+                    denominadorB1 = false;
                 }
                 if(words.get(W).getProbabilityN() > 0){
                     denominador2 = denominador2 * (words.get(W).getProbabilityN() * NoSpamProbability);
+                    denominadorB2 = false;
                 }
 
                 System.out.println("Numerador " + numerador);
@@ -100,7 +108,12 @@ public class BayesianSpamFilter {
             }
 
         }
-
+        if(denominadorB1 == true){
+            denominador1 = 0;
+        }
+        if(denominadorB2 == true){
+            denominador2 = 0;
+        }
         denominador = denominador1 + denominador2;
         prob = numerador/denominador;
         prob = 1 - prob;
