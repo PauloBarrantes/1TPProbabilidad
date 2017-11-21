@@ -82,16 +82,10 @@ public class BayesianSpamFilter {
 
         String W = " ";
         StringTokenizer body = new StringTokenizer(mail.getBody());
-        StringTokenizer header = new StringTokenizer(mail.getHeader());
         double NoSpamProbability = 1-spamProbability;
-        System.out.println("Hashmap Size" + words.size());
         while(body.hasMoreElements()){
             W = body.nextElement().toString();
             if(words.containsKey(W)) {
-                System.out.println("PALABRA: " + words.get(W).getWord());
-                System.out.println("Numerador " + numerador);
-                System.out.println("Denominador1 " +denominador1 );
-                System.out.println("D2:" + denominador2);
                 if(words.get(W).getProbabilityS() > 0){
                     numerador = numerador * (words.get(W).getProbabilityS()* spamProbability);
                     denominador1 = denominador1 * (words.get(W).getProbabilityS() * spamProbability);
@@ -101,28 +95,22 @@ public class BayesianSpamFilter {
                     denominador2 = denominador2 * (words.get(W).getProbabilityN() * NoSpamProbability);
                     denominadorB2 = false;
                 }
-
-                System.out.println("Numerador " + numerador);
-                System.out.println("Denominador1 " +denominador1 );
-                System.out.println("D2:" + denominador2);
             }
 
         }
         if(denominadorB1 == true){
             denominador1 = 0;
+            numerador = 0;
         }
         if(denominadorB2 == true){
             denominador2 = 0;
         }
         denominador = denominador1 + denominador2;
         prob = numerador/denominador;
-        prob = 1 - prob;
         if(prob>=spamThreshold){
             spam = true;
         }
-        System.out.println("Email: ");
-        System.out.println(mail.getBody());
-        System.out.println("Probabilidad: "+prob);
+
 
         return spam;
     }
